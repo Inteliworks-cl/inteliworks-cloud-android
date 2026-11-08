@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Inteliworks Cloud - personalizacion (branding) del cliente Android de Nextcloud
+  ~ SPDX-License-Identifier: GPL-2.0-or-later
+-->
+<resources>
+    <!-- Nombre e identidad: unicos para convivir con la app oficial de Nextcloud -->
+    <string name="app_name">Inteliworks Cloud</string>
+    <string name="account_type">cl.inteliworks.cloud</string>
+    <string name="authority">cl.inteliworks.cloud.provider</string>
+    <string name="users_and_groups_search_authority">cl.inteliworks.cloud.android.providers.UsersAndGroupsSearchProvider</string>
+    <string name="users_and_groups_share_with">cl.inteliworks.cloud.android.providers.UsersAndGroupsSearchProvider.action.SHARE_WITH</string>
+    <string name="document_provider_authority">cl.inteliworks.cloud.documents</string>
+    <string name="file_provider_authority">cl.inteliworks.cloud.files</string>
+    <string name="image_cache_provider_authority">cl.inteliworks.cloud.imageCache.provider</string>
+    <string name="db_file">inteliworkscloud.db</string>
+    <string name="db_name">inteliworkscloud</string>
+    <string name="data_folder">inteliworkscloud</string>
+    <string name="default_display_name_for_root_folder">Inteliworks Cloud</string>
+    <string name="name_for_branded_user_agent">InteliworksCloud</string>
+
+    <!-- Login: cada empresa tiene su propio servidor (https://cloud.<empresa>.cl), no se fija uno -->
+    <bool name="show_server_url_input">true</bool>
+    <bool name="show_provider_or_own_installation">false</bool>
+    <string name="provider_registration_server">https://inteliworks.cl</string>
+    <string name="url_server_install">https://inteliworks.cl</string>
+
+    <!-- Colores de marca -->
+    <color name="iw_brand">#1E90D6</color>
+    <color name="primary">#1E90D6</color>
+    <color name="primary_dark">#1673AD</color>
+    <color name="color_accent">#1E90D6</color>
+    <color name="login_text_color">#ffffff</color>
+    <color name="login_text_hint_color">#BFE0F4</color>
+
+    <bool name="is_branded_client">true</bool>
+    <bool name="show_whats_new">false</bool>
+    <bool name="show_outdated_server_warning">true</bool>
+
+    <!-- Ayuda / privacidad / soporte -> Inteliworks -->
+    <bool name="help_enabled">true</bool>
+    <string name="url_help">https://inteliworks.cl</string>
+    <string name="help_link" translatable="false">https://inteliworks.cl</string>
+    <bool name="privacy_enabled">true</bool>
+    <string name="privacy_url">https://inteliworks.cl</string>
+    <bool name="imprint_enabled">false</bool>
+    <bool name="recommend_enabled">false</bool>
+    <bool name="participate_enabled">false</bool>
+    <string name="mail_logger">soporte@inteliworks.cl</string>
+    <string name="url_app_download">https://github.com/Inteliworks-cl/inteliworks-cloud-android/releases/latest</string>
+    <string name="report_issue_link" translatable="false">mailto:soporte@inteliworks.cl</string>
+    <string name="report_issue_empty_link" translatable="false">mailto:soporte@inteliworks.cl</string>
+    <string name="osm_geocoder_contact" translatable="false">soporte@inteliworks.cl</string>
+
+    <!-- Licencia GPL: el codigo fuente de esta version es este repositorio + Nextcloud upstream -->
+    <bool name="sourcecode_enabled">true</bool>
+    <string name="sourcecode_url" translatable="false">https://github.com/Inteliworks-cl/inteliworks-cloud-android</string>
+    <bool name="license_enabled">true</bool>
+</resources>
