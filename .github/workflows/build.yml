@@ -22,7 +22,7 @@ jobs:
       HAS_KEYSTORE: ${{ secrets.IW_KEYSTORE_BASE64 != '' }}
     steps:
       - name: Checkout (branding)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Leer version upstream
         id: v
@@ -31,7 +31,7 @@ jobs:
           echo "rev=$(tr -dc '0-9' < BRANDING_REVISION)" >> "$GITHUB_OUTPUT"
 
       - name: Checkout Nextcloud Android ${{ steps.v.outputs.tag }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: nextcloud/android
           ref: ${{ steps.v.outputs.tag }}
@@ -42,7 +42,7 @@ jobs:
         run: branding/apply.sh upstream
 
       - name: JDK 21
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 21
@@ -91,7 +91,7 @@ jobs:
           rm -f "$RUNNER_TEMP/iw.jks" "$IN"
 
       - name: Subir artefacto
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: inteliworks-cloud-apk
           path: dist/*.apk
