@@ -1,5 +1,5 @@
 # Compila Inteliworks Cloud (Android) = Nextcloud Android (tag UPSTREAM_TAG) + branding/
-name: Build APK
+name: Build APK + AAB
 
 on:
   push:
@@ -70,6 +70,26 @@ jobs:
           mkdir -p dist && cp "$APK" "dist/$NAME"
           ls -la dist
           echo "name=$NAME" >> "$GITHUB_OUTPUT"
+
+      # Google Play: mismo codigo/versionCode, sin permisos restringidos (branding/play.sh).
+      # Se compila DESPUES del APK para no alterar el APK de Releases (sideload).
+      - name: Compilar AAB Google Play (sin firmar)
+        working-directory: upstream
+        run: |
+          ../branding/play.sh .
+          ./gradlew --no-daemon bundleGenericRelease
+          AAB=$(find app/build/outputs/bundle/genericRelease -name '*.aab' | head -n1)
+          test -n "$AAB"
+          mkdir -p ../dist-aab
+          cp "$AAB" "../dist-aab/inteliworks-cloud-${{ steps.v.outputs.tag }}-iw${{ steps.v.outputs.rev }}-play-unsigned.aab"
+          ls -la ../dist-aab
+
+      - name: Subir artefacto AAB
+        uses: actions/upload-artifact@v5
+        with:
+          name: inteliworks-cloud-aab
+          path: dist-aab/*.aab
+          retention-days: 30
 
       # Firma opcional en CI: solo si existen los secrets (ver README).
       - name: Firmar en CI (opcional)

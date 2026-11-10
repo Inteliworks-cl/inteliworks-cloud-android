@@ -42,7 +42,7 @@
     <string name="url_help">https://inteliworks.cl</string>
     <string name="help_link" translatable="false">https://inteliworks.cl</string>
     <bool name="privacy_enabled">true</bool>
-    <string name="privacy_url">https://inteliworks.cl</string>
+    <string name="privacy_url">https://inteliworks.cl/politica-privacidad.html</string>
     <bool name="imprint_enabled">false</bool>
     <bool name="recommend_enabled">false</bool>
     <bool name="participate_enabled">false</bool>
