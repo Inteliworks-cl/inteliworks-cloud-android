@@ -24,7 +24,7 @@ La firma se hace en el servidor condor3033 (el keystore nunca sale de ahí), ver
 
 | Archivo | Qué es |
 |---|---|
-| `UPSTREAM_TAG` | tag estable de Nextcloud Android usado (ej. `stable-35.0.2`) |
+| `UPSTREAM_TAG` | tag estable de Nextcloud Android usado (ej. `35.1.0`; hasta 35.0.x era `stable-35.0.2`) |
 | `BRANDING_REVISION` | 0..9, revisión de la marca sobre ese upstream |
 | `branding/res/values/setup.xml` | nombre, colores, cuenta, URLs |
 | `branding/res/...` | íconos/logo generados |
@@ -34,8 +34,10 @@ La firma se hace en el servidor condor3033 (el keystore nunca sale de ahí), ver
 
 ## Actualizar a una nueva versión de Nextcloud
 
-1. Ver la última estable: https://github.com/nextcloud/android/releases (tags `stable-X.Y.Z`).
-2. Editar `UPSTREAM_TAG` (ej. `stable-35.0.3`) y poner `BRANDING_REVISION` en `1`.
+1. Ver la última estable: https://github.com/nextcloud/android/releases (desde 35.1.0 el tag es `X.Y.Z`;
+   antes era `stable-X.Y.Z`; no usar `rc-*`). Se usa el **tag**, no la rama `stable-X.Y.x`.
+2. Editar `UPSTREAM_TAG` con el tag exacto (ej. `35.1.0`) y poner `BRANDING_REVISION` en `1`.
+   La versión publicada (`vX.Y.Z-iwN`) se obtiene quitando el prefijo `stable-` si lo hay.
 3. Commit + push a `main` → Actions compila. Si falla `apply.sh` es porque upstream cambió
    la estructura de `app/build.gradle.kts` o de `setup.xml`: revisar y ajustar.
 4. En condor3033: `tools/firmar-y-publicar.sh` (toma la última corrida exitosa de `main`).
